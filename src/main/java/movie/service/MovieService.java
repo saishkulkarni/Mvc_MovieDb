@@ -70,4 +70,16 @@ public class MovieService {
 			return "fetch";
 		}
 	}
+
+	public String delete(int id, ModelMap map) {
+		movieDao.deleteMovie(id);
+		map.put("success", "Movie Removed Success");
+		return "home";
+	}
+
+	public String editMovie(int id, ModelMap map) {
+		Movie movie=movieDao.findMovie(id);
+	 	map.put("movie", movie);
+	 	return "edit-movie.jsp";
+	}
 }

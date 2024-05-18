@@ -82,28 +82,44 @@ public class MovieController {
 	}
 
 	@PostMapping("/fetch-movies-id")
-	public String fetchMovieById(@RequestParam int id,ModelMap map) {
-		return service.fetchMovieById(id,map);
+	public String fetchMovieById(@RequestParam int id, ModelMap map) {
+		return service.fetchMovieById(id, map);
 	}
 
 	@PostMapping("/fetch-movies-name")
-	public String fetchMovieByName(@RequestParam String name,ModelMap map) {
-		return service.fetchMovieByName(name,map);
+	public String fetchMovieByName(@RequestParam String name, ModelMap map) {
+		return service.fetchMovieByName(name, map);
 	}
 
 	@PostMapping("/fetch-movies-rating")
-	public String fetchMovieByRating(@RequestParam double rating,ModelMap map) {
-		return service.fetchMovieByRating(rating,map);
+	public String fetchMovieByRating(@RequestParam double rating, ModelMap map) {
+		return service.fetchMovieByRating(rating, map);
 	}
 
 	@PostMapping("/fetch-movies-language")
-	public String fetchMovieByLanguage(@RequestParam String language,ModelMap map) {
-		return service.fetchMovieByLanguage(language,map);
+	public String fetchMovieByLanguage(@RequestParam String language, ModelMap map) {
+		return service.fetchMovieByLanguage(language, map);
 	}
 
 	@PostMapping("/fetch-movies-genre")
-	public String fetchMovieByGenre(@RequestParam String genre,ModelMap map) {
-		return service.fetchMovieByGenre(genre,map);
+	public String fetchMovieByGenre(@RequestParam String genre, ModelMap map) {
+		return service.fetchMovieByGenre(genre, map);
+	}
+
+	@GetMapping("/delete-movie")
+	public String delete(@RequestParam int id, ModelMap map) {
+		return service.delete(id, map);
+	}
+
+	@GetMapping("/edit-movie")
+	public String editMovie(@RequestParam int id, ModelMap map) {
+		return service.editMovie(id, map);
+	}
+
+	@PostMapping("/edit-movie")
+	@ResponseBody
+	public String updateMovie(Movie movie, ModelMap map) {
+		return movie.toString();
 	}
 
 }
